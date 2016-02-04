@@ -1,0 +1,135 @@
+* {
+	box-sizing: border-box;
+	font-family: 'open-sans', helvetica;
+}
+
+.wrapper {
+	margin: 0 auto;
+	width: 70vw;
+	margin-top: 20px;
+}
+
+/* ***** TABS ***** */
+
+.quoteTabs ul {
+	padding-right: 40px;
+	margin: 0px;
+	list-style-type: none;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	width: auto;
+	padding-left: 0px;
+	padding-right: 0px;
+	border: 1px solid #d4d4d4;
+	left: 0;
+	position: relative;
+}
+
+.quoteTabs li {
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	padding: 10px 15px;
+	border-left: 1px solid rgba(255,255,255,.75);
+	border-right: 1px solid rgba(0,0,0,.1);
+	background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
+	flex-grow: 1;
+	flex-basis: auto;
+	width: 100%;
+
+}
+
+.activeTab {
+	background-color: #e5e5e5;
+}
+
+.quoteTabs a {
+	text-decoration: none;
+	color: #777;
+}
+
+.quoteTabs :hover {
+	color: black;
+}
+
+
+/* *****CONTENT***** */
+
+.submitContent {
+	border-left: 1px solid #d4d4d4;
+	border-right: 1px solid #d4d4d4;
+	border-bottom: 1px solid #d4d4d4;
+	overflow: hidden;
+	padding: 10px;
+}
+
+.form {
+	width: 70vw;
+}
+
+.submitContent p {
+	padding: 20px;
+	text-align: center;
+}
+
+
+.submitContent input {
+	width: 75%;
+	line-height: 20px;
+	font-size: 16px;
+	margin: 10px 20px;
+}
+
+.submitContent button {
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+	background-color: #5bb75b;
+	padding: 14px 20px;
+	border-radius: 5px;
+	border: 1px solid rgba(0, 0, 0, 0.25);
+	float: right;
+}
+
+/* ***** QUOTE LISTS ***** */
+
+.listContent {
+	border-left: 1px solid #d4d4d4;
+	border-right: 1px solid #d4d4d4;
+	border-bottom: 1px solid #d4d4d4;
+	overflow: hidden;
+	padding: 10px;
+}
+
+.quoteTable {
+	display: table;
+	width: 100%;
+	text-align: center;
+}
+
+.listContent th, td {
+	border: 1px solid #d4d4d4;
+}
+
+
+/* ***** RANDOM QUOTES ***** */
+
+.randomContent {
+	border-left: 1px solid #d4d4d4;
+	border-right: 1px solid #d4d4d4;
+	border-bottom: 1px solid #d4d4d4;
+	overflow: hidden;
+	padding: 10px;
+}
+
+.randomContent button {
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+	background-color: #337ab7;
+	padding: 14px 20px;
+	border-radius: 5px;
+	border: 1px solid rgba(0, 0, 0, 0.25);
+	float: right;
+}

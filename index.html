@@ -1,0 +1,51 @@
+<html ng-app="quoteApp">
+	<head>
+		<title>Inspirational Quote Exercise</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body ng-controller="quoteController">
+			{{greeting}}
+
+		<div class="wrapper">
+			<div  class="quoteTabs">
+				<ul>
+					<li class="li activeTab"><a href="#">Submit a Quote</a></li>
+					<li class="li activeTab"><a href="#">List of Quotes</a></li>
+					<li class="li activeTab"><a href="#">Randomizer</a></li>
+				</ul>
+			</div>
+			<div class="submitContent">
+				<p>Please enter your quote in the form below.  This will add it to the List of Quotes.</p>
+				<form>
+					<input class="quoteInput" type="textarea" placeholder="Enter Your Quote">
+					<input class="authorInput" type="text" placeholder="Enter the Author">
+					<input class="sourceInput" type="text" placeholder="Enter the Source of Quote">
+					<button class="submitQuote" type="submit" ng-click="">Submit Your Quote</button>
+				</form>
+			</div>
+			<div class="listContent">
+				<p>Browse, sort & filter through quotes.  If you like what you see, please rate them!</p>
+				<table class="quoteTable">
+					<tr>
+						<th>Quote</th>
+						<th>Author</th>
+						<th>Rating</th>
+						<th>Your Vote</th>
+					</tr>
+					<tr>
+						<td>name</td>
+						<td>text</td>
+						<td>rating</td>
+						<td>stars</td>
+					</tr>
+				</table>
+			</div>
+			<div class="randomContent">
+				<p>Looking for a little inspiration?  Click the Random Quote button below.</p>
+				<button class="randomButton" type="button">I'm Feeling Lucky!</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+</html>
