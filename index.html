@@ -8,22 +8,24 @@
 		<div class="wrapper">
 			<div  class="quoteTabs">
 				<ul>
-					<li class="li activeTab"><a href="#">Submit a Quote</a></li>
-					<li class="li activeTab"><a href="#">List of Quotes</a></li>
-					<li class="li activeTab"><a href="#">Randomizer</a></li>
+					<li class="li activeTab" ng-click="hideSubmit()"><a href="#">Submit a Quote</a></li>
+					<li class="li activeTab" ng-click="hideList()"><a href="#">List of Quotes</a></li>
+					<li class="li activeTab" ng-click="hideRandom()"><a href="#">Randomizer</a></li>
 				</ul>
 			</div>
-			<div class="submitContent">
+			<div class="submitContent" ng-show="trueFalse.showSubmitTab">
 				<p>Please enter your quote in the form below.  This will add it to the List of Quotes.</p>
 				<form>
-					<input class="quoteInput" type="text" placeholder="Enter Your Quote">
-					<input class="authorInput" type="text" placeholder="Enter the Author">
-					<input class="sourceInput" type="text" placeholder="Enter the Source of Quote">
-					<button class="submitQuote" type="submit" ng-click="">Submit Your Quote</button>
+					<input class="quoteInput" type="text" placeholder="Enter Your Quote" ng-model="form.quote">
+					<input class="authorInput" type="text" placeholder="Enter the Author" ng-model="form.author">
+					<input class="sourceInput" type="text" placeholder="Enter the Source of Quote" ng-model="form.source">
+					<input type="button" value="Submit Your Quote" class="submitQuote" ng-click="submitQuote()" ng-click="hideSubmit()">
 				</form>
 			</div>
-			<div class="listContent">
+			<div class="listContent" ng-hide="trueFalse.hideListTab">
 				<p>Browse, sort & filter through quotes.  If you like what you see, please rate them!</p>
+				<input type="search" class="search" placeholder="Search Quotes" ng-model="searchData">
+
 				<table class="quoteTable">
 					<tr>
 						<th>Quote</th>
@@ -32,21 +34,18 @@
 						<th>Rating</th>
 						<th>Vote</th>
 					</tr>
-					<tr ng-repeat="quotes in quoteList">
+					<tr ng-repeat="quotes in quoteList | filter:searchData">
 						<td>{{quotes.quote}}</td>
 						<td>{{quotes.author}}</td>
 						<td>{{quotes.source}}</td>
 						<td>{{quotes.rating}}</td>
-						<td> + - </td>
-<!-- 						<td>text</td>
-						<td>rating</td>
-						<td>stars</td> -->
+						<td> + </td>
 					</tr>
 				</table>
 			</div>
-			<div class="randomContent">
+			<div class="randomContent" ng-hide="trueFalse.hideRandomTab">
 				<p>Looking for a little inspiration?  Click the Random Quote button below.</p>
-				<button class="randomButton" type="button">I'm Feeling Lucky!</button>
+				<input type="button" class="randomButton" value="I'm Feeling Lucky!">
 			</div>
 		</div>
 	</body>

@@ -44,14 +44,17 @@ angular.module('quoteApp')
 			1
 		);
 		var trueFalse = {
-			hideSubmitTab	: true,
+			showSubmitTab	: true,
 			hideListTab		: true,
 			hideRandomTab	: true
 		};
 
 		return {
 			quoteList 	: quoteArray,
-			trueFalse	: trueFalse
+			trueFalse	: trueFalse,
+			addQuote	: function(quote, author, source) {
+				this.quoteArray.push(new Quotes(quote, author, source));
+			}
 		}
 
 	}]);
@@ -59,8 +62,43 @@ angular.module('quoteApp')
 angular.module('quoteApp')
 	.controller('quoteController', ['$scope', 'quoteFactory', function($scope, quoteFactory){
 
+		$scope.addQuote = quoteFactory.addQuote,
 		$scope.quoteList = quoteFactory.quoteList,
-		$scope.trueFalse = quoteFactory.trueFalse
+		$scope.trueFalse = quoteFactory.trueFalse,
+		$scope.searchData = ''
+
+		$scope.emptyForm = function() {
+			$scope.form = {
+				quote : ''
+				},
+				{
+				author : ''
+				},
+				{
+				source : ''
+				}
+		}
 
 
+		$scope.emptyForm();
+		$scope.quoteAdder = function() {
+			$scope.quoteList.push($scope.form.quote, $scope.form.author, $scope.form.source);
+		}
+								console.log($scope.quoteList);
+
+
+		$scope.submitQuote = function () {
+				$scope.quoteAdder()
+			}
+
+		$scope.hideSubmit = function(){
+			$scope.trueFalse.showSubmitTab = !$scope.trueFalse.showSubmitTab;
+						$scope.trueFalse.hideListTab = !$scope.trueFalse.hideListTab;
+		}
+		$scope.hideList = function(){
+			$scope.trueFalse.hideListTab = !$scope.trueFalse.hideListTab;
+		}
+		$scope.hideRandom = function(){
+			$scope.trueFalse.hideRandomTab = !$scope.trueFalse.hideRandomTab;
+		}
 	}]);
