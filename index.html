@@ -4,7 +4,6 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body ng-controller="quoteController">
-			{{greeting}}
 
 		<div class="wrapper">
 			<div  class="quoteTabs">
@@ -17,7 +16,7 @@
 			<div class="submitContent">
 				<p>Please enter your quote in the form below.  This will add it to the List of Quotes.</p>
 				<form>
-					<input class="quoteInput" type="textarea" placeholder="Enter Your Quote">
+					<input class="quoteInput" type="text" placeholder="Enter Your Quote">
 					<input class="authorInput" type="text" placeholder="Enter the Author">
 					<input class="sourceInput" type="text" placeholder="Enter the Source of Quote">
 					<button class="submitQuote" type="submit" ng-click="">Submit Your Quote</button>
@@ -29,14 +28,19 @@
 					<tr>
 						<th>Quote</th>
 						<th>Author</th>
+						<th>Source</th>
 						<th>Rating</th>
-						<th>Your Vote</th>
+						<th>Vote</th>
 					</tr>
-					<tr>
-						<td>name</td>
-						<td>text</td>
+					<tr ng-repeat="quotes in quoteList">
+						<td>{{quotes.quote}}</td>
+						<td>{{quotes.author}}</td>
+						<td>{{quotes.source}}</td>
+						<td>{{quotes.rating}}</td>
+						<td> + - </td>
+<!-- 						<td>text</td>
 						<td>rating</td>
-						<td>stars</td>
+						<td>stars</td> -->
 					</tr>
 				</table>
 			</div>
